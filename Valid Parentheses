@@ -1,0 +1,14 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        my_dict = {')':'(','}':'{',']':'['}
+        if len(s) % 2 != 0:
+            return False
+        stack = []
+        for char in s:
+            if char in my_dict:
+                popped_Char = stack.pop() if stack else '#'
+                if popped_Char != my_dict[char]:
+                    return False
+            else:
+                stack.append(char)
+        return not stack       
