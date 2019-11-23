@@ -1,0 +1,20 @@
+#Using dictionary O(n) is always length of max string because we traverse through full string
+
+def oneChangeAway(string1, string2):
+    d={}
+    for x in string1:
+        d[x]=d.get(x,0) + 1
+    for x in string2:
+        d[x]=d.get(x,0) - 1
+    print(d)
+    count1 =0
+    for x in d.values():
+        if x!=0:
+            if count1 ==1:
+                return False
+            else:
+                count1+=1
+            
+    return True
+    
+print(oneChangeAway("abc","abc"))
